@@ -57,6 +57,7 @@ pub const BROTLI_DECODER_ERROR_ALLOC_RING_BUFFER_2: BrotliDecoderErrorCode = -27
 pub const BROTLI_DECODER_ERROR_ALLOC_BLOCK_TYPE_TREES: BrotliDecoderErrorCode = -30;
 pub const BROTLI_DECODER_ERROR_UNREACHABLE: BrotliDecoderErrorCode = -31;
 
+#[link(name = "brotlidec")]
 extern "C" {
     pub fn BrotliDecoderCreateInstance(alloc_func: brotli_alloc_func,
                                        free_func: brotli_free_func,
@@ -119,6 +120,7 @@ pub const BROTLI_DEFAULT_MODE: u32 = 0;
 
 pub enum BrotliEncoderState {}
 
+#[link(name = "brotlienc")]
 extern "C" {
     pub fn BrotliEncoderSetParameter(state: *mut BrotliEncoderState,
                                      param: BrotliEncoderParameter,
